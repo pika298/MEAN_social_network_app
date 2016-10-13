@@ -1,3 +1,4 @@
+// Claim dependency
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -20,8 +21,14 @@ app.use(function(req, res, next) {
   next();
 });
 
+/* load index.html
+app.get('/', function(req, res) {
+  res.sendfile('index.html');
+});
+*/
+
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/socialnetworkapp');
+mongoose.connect('mongodb://localhost:27017/socialdata');
 mongoose.connection.once('open', function() {
 
   // Load the models.
